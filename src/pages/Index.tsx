@@ -1,5 +1,5 @@
 import ToolCard from '@/components/ToolCard';
-import { MessageSquare, Image, Video, Volume2, Mic, Sparkles, Zap } from 'lucide-react';
+import { MessageSquare, Image, Video, Volume2, Mic, Sparkles, Zap, Edit3 } from 'lucide-react';
 
 const tools = [
   {
@@ -15,6 +15,13 @@ const tools = [
     icon: Image,
     href: '/image',
     gradient: 'bg-gradient-secondary'
+  },
+  {
+    title: 'Image Editor',
+    description: 'Edit and enhance existing images using AI-powered editing tools',
+    icon: Edit3,
+    href: '/image-editor',
+    gradient: 'bg-gradient-accent'
   },
   {
     title: 'Video Generator',

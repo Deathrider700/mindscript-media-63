@@ -15,7 +15,8 @@ import {
   Menu,
   CreditCard,
   Info,
-  Zap
+  Zap,
+  Edit3
 } from 'lucide-react';
 
 const navigation = [
@@ -23,6 +24,7 @@ const navigation = [
   { name: 'Features', href: '/features', icon: Zap },
   { name: 'AI Chat', href: '/chat', icon: MessageSquare },
   { name: 'Image Gen', href: '/image', icon: Image },
+  { name: 'Image Edit', href: '/image-editor', icon: Edit3 },
   { name: 'Video Gen', href: '/video', icon: Video },
   { name: 'Text to Speech', href: '/tts', icon: Volume2 },
   { name: 'Transcription', href: '/transcription', icon: Mic },
@@ -30,8 +32,8 @@ const navigation = [
   { name: 'About', href: '/about', icon: Info },
 ];
 
-const primaryNav = navigation.slice(0, 6); // Main tools
-const secondaryNav = navigation.slice(6); // Additional pages
+const primaryNav = navigation.slice(0, 7); // Main tools
+const secondaryNav = navigation.slice(7); // Additional pages
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -155,6 +157,7 @@ export default function Layout({ children }: LayoutProps) {
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link to="/chat" className="hover:text-foreground transition-colors">AI Chat</Link></li>
                 <li><Link to="/image" className="hover:text-foreground transition-colors">Image Generator</Link></li>
+                <li><Link to="/image-editor" className="hover:text-foreground transition-colors">Image Editor</Link></li>
                 <li><Link to="/video" className="hover:text-foreground transition-colors">Video Creator</Link></li>
                 <li><Link to="/tts" className="hover:text-foreground transition-colors">Text to Speech</Link></li>
                 <li><Link to="/transcription" className="hover:text-foreground transition-colors">Transcription</Link></li>
