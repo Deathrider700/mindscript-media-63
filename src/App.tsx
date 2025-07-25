@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import Chat from "./pages/Chat";
 import ImageGenerator from "./pages/ImageGenerator";
+import ImageEditor from "./pages/ImageEditor";
 import VideoGenerator from "./pages/VideoGenerator";
 import TextToSpeech from "./pages/TextToSpeech";
 import Transcription from "./pages/Transcription";
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/features" element={<Features />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/image" element={<ImageGenerator />} />
+            <Route path="/image-editor" element={<ImageEditor />} />
             <Route path="/video" element={<VideoGenerator />} />
             <Route path="/tts" element={<TextToSpeech />} />
             <Route path="/transcription" element={<Transcription />} />

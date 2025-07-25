@@ -45,6 +45,12 @@ export interface TTSRequest {
   voice?: string;
 }
 
+export interface ImageEditRequest {
+  image: File;
+  prompt: string;
+  model: string;
+}
+
 // Chat API
 export const sendChatMessage = async (request: ChatRequest) => {
   const response = await fetch(`${API_BASE_URL}/chat/completions`, {
@@ -103,6 +109,28 @@ export const generateSpeech = async (request: TTSRequest) => {
   }
   
   return response.blob();
+};
+
+// Image Edit API
+export const editImage = async (request: ImageEditRequest) => {
+  const formData = new FormData();
+  formData.append('image', request.image);
+  formData.append('prompt', request.prompt);
+  formData.append('model', request.model);
+  
+  const response = await fetch(`${API_BASE_URL}/images/edits`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${getApiKey()}`,
+    },
+    body: formData,
+  });
+  
+  if (!response.ok) {
+    throw new Error(`Image edit error: ${response.statusText}`);
+  }
+  
+  return response.json();
 };
 
 // Audio Transcription API
@@ -196,5 +224,11 @@ export const AI_MODELS = {
     'provider-3/whisper-1',
     'provider-6/distil-whisper-large-v3-en',
     'provider-3/gpt-4o-mini-transcribe'
+  ],
+  imageEdit: [
+    'provider-6/black-forest-labs-flux-1-kontext-dev',
+    'provider-6/black-forest-labs-flux-1-kontext-pro',
+    'provider-6/black-forest-labs-flux-1-kontext-max',
+    'provider-3/flux-kontext-dev'
   ]
 };
