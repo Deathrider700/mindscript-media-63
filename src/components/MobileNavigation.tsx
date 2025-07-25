@@ -14,7 +14,8 @@ import {
   X,
   CreditCard,
   Info,
-  Zap
+  Zap,
+  Edit3
 } from 'lucide-react';
 
 const navigation = [
@@ -22,6 +23,7 @@ const navigation = [
   { name: 'Features', href: '/features', icon: Zap },
   { name: 'AI Chat', href: '/chat', icon: MessageSquare },
   { name: 'Image Gen', href: '/image', icon: Image },
+  { name: 'Image Edit', href: '/image-editor', icon: Edit3 },
   { name: 'Video Gen', href: '/video', icon: Video },
   { name: 'Text to Speech', href: '/tts', icon: Volume2 },
   { name: 'Transcription', href: '/transcription', icon: Mic },
