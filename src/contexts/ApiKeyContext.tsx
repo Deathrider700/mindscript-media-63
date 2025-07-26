@@ -8,7 +8,7 @@ interface ApiKeyContextType {
 
 const ApiKeyContext = createContext<ApiKeyContextType | undefined>(undefined);
 
-const DEFAULT_API_KEY = 'ddc-a4f-4c0658a7764c432c9aa8e4a6d409afb3';
+// No default API key - users must provide their own for security
 
 export function ApiKeyProvider({ children }: { children: React.ReactNode }) {
   const [userApiKey, setUserApiKeyState] = useState<string | null>(null);
@@ -31,7 +31,10 @@ export function ApiKeyProvider({ children }: { children: React.ReactNode }) {
   };
 
   const getApiKey = () => {
-    return userApiKey || DEFAULT_API_KEY;
+    if (!userApiKey) {
+      throw new Error('API key required. Please set your API key in the settings.');
+    }
+    return userApiKey;
   };
 
   return (
