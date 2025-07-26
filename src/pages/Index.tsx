@@ -1,4 +1,5 @@
 import ToolCard from '@/components/ToolCard';
+import ApiKeySettings from '@/components/ApiKeySettings';
 import { MessageSquare, Image, Video, Volume2, Mic, Sparkles, Zap, Edit3 } from 'lucide-react';
 
 const tools = [
@@ -66,6 +67,11 @@ const Index = () => {
           Unlock the power of artificial intelligence with our comprehensive suite of AI tools. 
           Create, communicate, and innovate like never before.
         </p>
+        
+        {/* API Key Setup */}
+        <div className="flex justify-center">
+          <ApiKeySettings />
+        </div>
         
         <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
           <div className="flex items-center space-x-1">
