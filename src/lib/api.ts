@@ -1,9 +1,16 @@
+import { toast } from '@/hooks/use-toast';
+
 const API_BASE_URL = 'https://api.a4f.co/v1';
 
-// Get API key from user's localStorage - throws error if not found
+// Get API key from user's localStorage - shows warning if not found
 const getApiKey = () => {
   const userKey = localStorage.getItem('user-api-key');
   if (!userKey) {
+    toast({
+      title: "API Key Required",
+      description: "Please add your API key using the key icon in the header to use AI features.",
+      variant: "destructive"
+    });
     throw new Error('API key required. Please set your API key in the settings.');
   }
   return userKey;
