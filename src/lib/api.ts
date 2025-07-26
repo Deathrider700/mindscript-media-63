@@ -1,10 +1,12 @@
 const API_BASE_URL = 'https://api.a4f.co/v1';
-const DEFAULT_API_KEY = 'ddc-a4f-4c0658a7764c432c9aa8e4a6d409afb3';
 
-// Get API key from user's localStorage or use default
+// Get API key from user's localStorage - throws error if not found
 const getApiKey = () => {
   const userKey = localStorage.getItem('user-api-key');
-  return userKey || DEFAULT_API_KEY;
+  if (!userKey) {
+    throw new Error('API key required. Please set your API key in the settings.');
+  }
+  return userKey;
 };
 
 const getHeaders = () => ({
